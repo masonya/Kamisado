@@ -1,0 +1,3 @@
+class Black < Monk
+
+end

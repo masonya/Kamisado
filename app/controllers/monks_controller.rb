@@ -1,0 +1,3 @@
+class MonksController < ApplicationController
+
+end

@@ -1,0 +1,3 @@
+class White < Monk
+
+end
