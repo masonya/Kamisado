@@ -10,6 +10,7 @@ def seed_data
   drop_db
   create_players
   create_monks
+  create_boards
 end
 
 
@@ -71,6 +72,10 @@ def create_monk(monk)
   )
 
   puts "Monk with id #{ monk.id } created"
+end
+
+def create_boards
+  Board.create!
 end
 
 

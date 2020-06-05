@@ -4,6 +4,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import GameContainer from '../containers/GameContainer'
+// import Monk from '../components/Monk'
 // import PropTypes from 'prop-types'
 
 function callServer(id) {
@@ -17,7 +19,7 @@ function callServer(id) {
 }
 
 const Monk = props => {
-  console.log(props)
+  // console.log(props)
 
   return (
     <div>

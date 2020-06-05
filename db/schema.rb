@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_180621) do
+ActiveRecord::Schema.define(version: 2020_06_04_101628) do
 
   create_table "blacks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.integer "b1X", default: 0
+    t.integer "b1Y", default: 0
+    t.integer "b1Position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
