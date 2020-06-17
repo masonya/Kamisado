@@ -3,7 +3,8 @@ import Monk from '../components/Monk'
 import B1 from '../components/Monk'
 import Square from '../components/Square'
 import Board from '../components/Board'
-import Game from '../components/Game'
+import { observe } from '../components/Game'
+// import React, { useState, useEffect } from 'react'
 
 export default class GameContainer extends Component {
   constructor(props) {
@@ -17,13 +18,18 @@ export default class GameContainer extends Component {
       monks: {
         monkPosition: [1, 4],
         b1Position: [3, 3]
-      }
+      },
+      setMonkPos: [1, 7],
+      monkPos: [1, 7]
     }
 
     this.changePosition = this.changePosition.bind(this)
     this.changeB1Position = this.changeB1Position.bind(this)
     this.preloadBoard = this.preloadBoard.bind(this)
-    this.handleChangeB1Position = this.handleChangeB1Position.bind(this)
+    this.changeB1Position2 = this.changeB1Position2.bind(this)
+    // this.handleChangeB1Position = this.handleChangeB1Position.bind(this)
+    // this.ob = this.ob.bind(this)
+
     // this.generateId = this.generateId.bind(this)
 
     // this.getMonks = this.getMonks.bind(this)
@@ -32,6 +38,8 @@ export default class GameContainer extends Component {
   componentDidMount() {
     this.preloadBoard()
   }
+
+  componentDidUpdate() {}
 
   preloadBoard() {
     fetch(`http://localhost:3000/api/boards/index.json`)
@@ -62,7 +70,7 @@ export default class GameContainer extends Component {
   changePosition() {
     let { monkPosition, monks } = this.state
 
-    monks.monkPosition = [2, 5]
+    monks.monkPosition = [3, 5]
 
     this.setState({
       monks
@@ -101,50 +109,40 @@ export default class GameContainer extends Component {
       })
   }
 
-  handleChangeB1Position() {
-    this.changeB1Position()
+  changeB1Position2(id, b1Position) {
+    let { b1Positions, boards } = this.state
+
+    console.log(boards.b1Positions)
+
+    boards.b1Positions = [5, 4]
+
+    let x = boards.b1Positions[0]
+    let y = boards.b1Positions[1]
+
+    this.setState({
+      boards
+    })
+
+    fetch(`http://localhost:3000/api/boards/${boards.id}.json`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        board: { b1X: x, b1Y: y, b1Position: null }
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data)
+      })
+      .catch(error => {
+        console.error('Error:', error)
+      })
   }
 
-  // generateId() {
-  //   let array = new Uint32Array(8)
-  //   window.crypto.getRandomValues(array)
-  //   let str = ''
-  //   for (let i = 0; i < array.length; i++) {
-  //     str += (i < 2 || i > 5 ? '' : '-') + array[i].toString(16).slice(-4)
-  //   }
-  //   return str
-  // }
-
-  // getMonks() {
-  //   let { monks } = this.state
-  //   monks = 35
-  //
-  //   this.setState({
-  //     monks
-  //   })
-  // }
-
-  // getMonks(search) {
-  //   fetch(`http://localhost:3000/api/monks/${id}.json`)
-  //     .then(response => {
-  //       return response.json()
-  //     })
-  //     .then(data => {
-  //       console.log(data)
-  //
-  //       this.setState({ autocomplete_cities: data })
-  //     })
-  //
-  //   let { monks } = this.state
-  //   monks.push(monk)
-  //
-  //   this.setState({
-  //     monks
-  //   })
-  // }
-
   render() {
-    let { monkPosition, b1Position, monks, boards } = this.state
+    let { monkPosition, b1Position, monks, boards, monkPos } = this.state
 
     return (
       <div>
@@ -153,7 +151,8 @@ export default class GameContainer extends Component {
           b1Position={boards.b1Positions}
         />
         <div onClick={this.changePosition}>Monk1</div>
-        <div onClick={this.handleChangeB1Position}>B1</div>
+        <div onClick={this.changeB1Position}>Moving B1 to [2, 3]</div>
+        <div onClick={this.changeB1Position2}>Moving B1 to [5, 4]</div>
       </div>
     )
   }

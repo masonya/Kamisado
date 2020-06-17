@@ -3,12 +3,7 @@ import Monk from '../components/Monk'
 import B1 from '../components/B1'
 import Square from '../components/Square'
 import { canMoveMonk, moveMonk } from '../components/Game'
-
-// function handleSquareClick(toX, toY) {
-//   if (canMoveMonk(toX, toY)) {
-//     moveMonk(toX, toY)
-//   }
-// }
+import BoardSquare from './BoardSquare'
 
 function renderSquare(i, [monkX, monkY], [b1X, b1Y]) {
   const x = i % 8
@@ -28,14 +23,12 @@ function renderSquare(i, [monkX, monkY], [b1X, b1Y]) {
       className={square_class}
       style={{ width: '12.5%', height: '12.5%' }}
       // onClick={() => handleSquareClick(x, y)}
-      x={x}
-      y={y}
     >
-      <Square>
+      <BoardSquare x={x} y={y}>
         {piece}
         {piece1}
         {square_id}
-      </Square>
+      </BoardSquare>
     </div>
   )
 }

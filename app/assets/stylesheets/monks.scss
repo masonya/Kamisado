@@ -1,0 +1,323 @@
+// @charset "UTF-8";
+
+body {
+  background-color: black;
+  overflow-y: hidden;
+}
+
+.GameBoard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 597px;
+  height: 597px;
+}
+
+.GameBoard .Cell {
+  width: 73px;
+  min-width: 50px;
+  height: 73px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border-width: thin;
+  border-color: black;
+  border-style: solid;
+    // opacity: 0.7;
+    border-collapse: collapse
+}
+
+.GameBoard .Cell:hover {
+  opacity: 1;
+}
+
+.MainArea {
+  display: flex;
+  justify-content: space-between;
+  height: 798px;
+  padding: 10px;
+  font-family: 'pragmaticalightc';
+  font-weight: 100;
+  margin-top: 25px;
+}
+
+// /*.GameBoard .Cell.monk::before {
+//   content: '•';
+//   display: block;
+//   font-size: 50px;
+// }
+// .GameBoard .Cell.white::before {
+//   color: white;
+// }
+// .GameBoard .Cell.black::before {
+//   color: black;
+// }
+// */
+
+
+
+.Cell:hover .MonkPathCSS  {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.text {
+  color: white;
+  width: 370px;
+  font-size: 13px;
+  line-height: 135%;
+}
+
+.newGame {
+  color: #FF004D;
+  font-size: 20px;
+  line-height: 135%;
+  position: absolute;
+  margin-top: 578px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.MonkChip {
+  height: 100%;
+  pointer-events: none;
+}
+
+
+.Cell:hover img {
+  -webkit-transform: rotate(45deg);
+  transition: 0.3s;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .MonkChipRotate {
+    // animation: monkChipSpin infinite 5s linear;
+    -webkit-transform: rotate(45deg);
+    height: 74px;
+    width: 74px;
+  }
+}
+
+// @keyframes monkChipSpin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+
+.MonkPathCSS  {
+  height: 43%;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+
+ .MonkPathCSS  {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.cellColor0 {background: #FF814B}
+.cellColor1 {background: #0018F2}
+.cellColor2 {background: #9773FF}
+.cellColor3 {background: #39FF88}
+.cellColor4 {background: #FBD616}
+.cellColor5 {background: #02C0FE}
+.cellColor6 {background: #FF004D}
+.cellColor7 {background: #C6C6C6}
+
+.cellColor8 {background: #02C0FE}
+.cellColor9 {background: #FF814B}
+.cellColor10 {background: #39FF88}
+.cellColor11 {background: #FF004D}
+.cellColor12 {background: #0018F2}
+.cellColor13 {background: #FBD616}
+.cellColor14 {background: #C6C6C6}
+.cellColor15 {background: #9773FF}
+
+.cellColor16 {background: #FF004D}
+.cellColor17 {background: #39FF88}
+.cellColor18 {background: #FF814B}
+.cellColor19 {background: #02C0FE}
+.cellColor20 {background: #9773FF}
+.cellColor21 {background: #C6C6C6}
+.cellColor22 {background: #FBD616}
+.cellColor23 {background: #0018F2}
+
+.cellColor24 {background: #39FF88}
+.cellColor25 {background: #9773FF}
+.cellColor26 {background: #0018F2}
+.cellColor27 {background: #FF814B}
+.cellColor28 {background: #C6C6C6}
+.cellColor29 {background: #FF004D}
+.cellColor30 {background: #02C0FE}
+.cellColor31 {background: #FBD616}
+
+.cellColor32 {background: #FBD616}
+.cellColor33 {background: #02C0FE}
+.cellColor34 {background: #FF004D}
+.cellColor35 {background: #C6C6C6}
+.cellColor36 {background: #FF814B}
+.cellColor37 {background: #0018F2}
+.cellColor38 {background: #9773FF}
+.cellColor39 {background: #39FF88}
+
+.cellColor40 {background: #0018F2}
+.cellColor41 {background: #FBD616}
+.cellColor42 {background: #C6C6C6}
+.cellColor43 {background: #9773FF}
+.cellColor44 {background: #02C0FE}
+.cellColor45 {background: #FF814B}
+.cellColor46 {background: #39FF88}
+.cellColor47 {background: #FF004D}
+
+.cellColor48 {background: #9773FF}
+.cellColor49 {background: #C6C6C6}
+.cellColor50 {background: #FFC11F}
+.cellColor51 {background: #0018F2}
+.cellColor52 {background: #FF004D}
+.cellColor53 {background: #39FF88}
+.cellColor54 {background: #FF814B}
+.cellColor55 {background: #02C0FE}
+
+.cellColor56 {background: #C6C6C6}
+.cellColor57 {background: #FF004D}
+.cellColor58 {background: #02C0FE}
+.cellColor59 {background: #FBD616}
+.cellColor60 {background: #39FF88}
+.cellColor61 {background: #9773FF}
+.cellColor62 {background: #0018F2}
+.cellColor63 {background: #FF814B}
+
+
+
+.DottedBox {
+  margin: 40px;
+  border: 5px dotted pink;
+}
+
+.DottedBox_content {
+  font-size: 15px;
+  text-align: center;
+}
+
+
+// .MonkChipB0018F2 {
+//   background-image: image_url('MonkChipB0018F2.svg')
+// }
+//
+// .MonkChipB39FF88 {
+//   background-image: image_url('MonkChipB39FF88.svg')
+// }
+//
+// .MonkChipB02C0FE {
+//   background-image: image_url('MonkChipB02C0FE.svg')
+// }
+//
+// .MonkChipB9773FF {
+//   background-image: image_url('MonkChipB9773FF.svg')
+// }
+//
+// .MonkChipBC6C6C6 {
+//   background-image: image_url('MonkChipBC6C6C6.svg')
+// }
+//
+// .MonkChipBFF004D {
+//   background-image: image_url('MonkChipBFF004D.svg')
+// }
+//
+// .MonkChipBFF814B {
+//   background-image: image_url('MonkChipBFF814B.svg')
+// }
+//
+// .MonkChipBFBD616 {
+//   background-image: image_url('MonkChipBFBD616.svg')
+// }
+//
+//
+//
+// .MonkChipW0018F2 {
+//   background-image: image_url('MonkChipW0018F2.svg')
+// }
+//
+// .MonkChipW39FF88 {
+//   background-image: image_url('MonkChipW39FF88.svg')
+// }
+//
+// .MonkChipW02C0FE {
+//   background-image: image_url('MonkChipW02C0FE.svg')
+// }
+//
+// .MonkChipW9773FF {
+//   background-image: image_url('MonkChipW9773FF.svg')
+// }
+//
+// .MonkChipWC6C6C6 {
+//   background-image: image_url('MonkChipWC6C6C6.svg')
+// }
+//
+// .MonkChipWFF004D {
+//   background-image: image_url('MonkChipWFF004D.svg')
+// }
+//
+// .MonkChipWFF814B {
+//   background-image: image_url('MonkChipWFF814B.svg')
+// }
+//
+// .MonkChipWFBD616 {
+//   background-image: image_url('MonkChipWFBD616.svg')
+// }
+//
+//
+
+
+
+
+
+
+
+// .MonkContainer {
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 800px;
+//
+//   .Cell {
+//     width: 100px;
+//     min-width: 100px;
+//     height: 100px;
+//     opacity: 0.8;
+//     cursor: pointer;
+//     text-align: center;
+//     line-height: 100px;
+//
+//     &:hover {
+//       opacity: 1;
+//     }
+//
+//     &.monk::before {
+//       content: '•';
+//       display: block;
+//       font-size: 100px;
+//     }
+//
+//     &.white::before {
+//       color: white;
+//     }
+//
+//     &.black::before {
+//       color: black;
+//     }
+//   }
+// }

@@ -1,21 +1,28 @@
 import React from 'react'
+import { ItemTypes } from './ItemTypes'
+import { useDrag } from 'react-dnd'
 
-export default class Monk extends React.Component {
-  constructor(props) {
-    super(props)
+function Monk() {
+  const [{ isDragging }, drag] = useDrag({
+    item: { type: ItemTypes.MONK },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging()
+    })
+  })
 
-    this.state = {}
-  }
-
-  render() {
-    return (
-      <span
-        style={{
-          fontSize: '70px'
-        }}
-      >
-        ☻
-      </span>
-    )
-  }
+  return (
+    <div
+      ref={drag}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+        fontSize: 70,
+        fontWeight: 'bold',
+        cursor: 'move'
+      }}
+    >
+      ☺
+    </div>
+  )
 }
+
+export default Monk

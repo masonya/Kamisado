@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import Board from '../components/Board'
 import { observe } from '../components/Game'
 import GameContainer from '../containers/GameContainer'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 document.addEventListener('DOMContentLoaded', () => {
   // const root = document.getElementById('root')
@@ -10,7 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // observe(monkPosition =>
   ReactDOM.render(
     // <Board monkPosition={monkPosition} />,
-    <GameContainer />,
+
+    <DndProvider backend={HTML5Backend}>
+      <GameContainer />
+    </DndProvider>,
+
     document.body.appendChild(document.createElement('div'))
     // root
   )

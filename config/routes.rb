@@ -7,9 +7,14 @@ Rails.application.routes.draw do
 
     resources :boards, only: [:show, :update, :create]
 
+    resources :game_boards, only: [ :update, :create]
+    get 'game_boards/index'
+
     resources :monks
     get 'welcom/index'
   end
+
+mount ActionCable.server => '/cable'
 
 get 'welcom/index'
 
